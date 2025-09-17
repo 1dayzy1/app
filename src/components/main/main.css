@@ -1,0 +1,59 @@
+.block{
+    padding: 12px;
+    background-color: #0f1720;
+    box-shadow: 4px 4px 24px 0px rgba(0, 0, 0, 0.44);
+    margin: 0 auto;
+    max-width: 480px;
+    border-radius: 20px;
+    min-height: 100vh;
+    
+
+}
+
+
+.Logo{
+    font-size: 18px;
+    color: #fff;
+    font-weight: 700;
+
+}
+
+.welcome{
+    font-size: 20px;
+    color: #fff;
+    font-weight: 700;
+}
+
+
+.firstText{
+    color: #fff;
+    font-size: 15px;
+    margin-bottom: 14px;
+}
+
+
+.firstBlock{
+    box-shadow: 4px 4px 24px 0px rgba(0, 0, 0, 0.44);
+    border-radius: 20px;
+    padding: 12px;
+}
+
+
+.btn-main{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background-color: #2f80ed;;
+    color:#fff;
+    border:none;
+    padding:10px 12px;
+    border-radius:10px;
+    font-weight:600;
+    cursor:pointer;
+    box-shadow: 0 6px 18px rgba(47,128,237,0.12);
+    margin-bottom: 90px;
+}
+
+.desc{
+    color: #fff;
+}

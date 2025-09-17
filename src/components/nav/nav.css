@@ -1,0 +1,29 @@
+.nav-inner{
+    position:fixed;
+    left:50%;
+    transform:translateX(-50%);
+    bottom: 10px;
+    width: min(740px, 100%);
+    max-width:480px;
+    padding:10px;
+    box-sizing:border-box;
+    display:flex;
+    justify-content:space-around;
+    pointer-events:auto;
+    box-shadow: 4px 4px 24px 0px rgba(0, 0, 0, 0.44);
+    border-radius: 70px;
+    
+
+}
+
+.nav-btn{
+    border: none;
+    font-size: 10px;
+    color: #9aa4b2;
+    cursor: pointer;
+    
+}
+
+.nav-link.active .nav-btn{
+    color: #2f80ed;
+}
