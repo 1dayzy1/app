@@ -8,7 +8,8 @@ function Certificates() {
     const[sertificates, setSertificates] = useState({
     react:false,
     js:false,
-    front:false
+    front:false,
+    fullstack:false
 
     });
 
@@ -46,17 +47,34 @@ function Certificates() {
             <div className="cert-list">
             <div className="cert-btn" onClick={()=> toggleAccordion('react')} data-cert="cert1">
 
-                Python (Stepik)<br/>
-                <img src='./logo192.png' className={`img ${sertificates.react ? '' : 'hidden'}`} alt='sdf'/>
-                </div>
-            <button className="cert-btn" data-cert="cert2">Веб-разработчик (Яндекс Практикум)</button>
-            <button className="cert-btn" data-cert="cert3">JavaScript (Coursera)</button>
+                React(Mimo)<br/>
+                <img src='/Sertificates/react.png' width={300}  className={`img ${sertificates.react ? '' : 'hidden'}`} alt='sdf'/>
+              </div>
+
+              <div className="cert-btn" onClick={()=> toggleAccordion('fullstack')} data-cert="cert1">
+
+                EasyUM(FULLSTACK)<br/>
+                <img src='/Sertificates/fullstack.jpg' width={300} className={`img ${sertificates.fullstack ? '' : 'hidden'}`} alt='sdf'/>
+              </div>
+
+              <div className="cert-btn" onClick={()=> toggleAccordion('front')} data-cert="cert1">
+
+                Frontend(Mimo)<br/>
+                <img src='/Sertificates/frontend.png' width={300} className={`img ${sertificates.front ? '' : 'hidden'}`} alt='sdf'/>
+              </div>
+
+              <div className="cert-btn" onClick={()=> toggleAccordion('js')} data-cert="cert1">
+
+                JavaScript(Mimo)<br/>
+                <img src='/Sertificates/JS.png' width={300} className={`img ${sertificates.js ? '' : 'hidden'}`} alt='sdf'/>
+              </div>
+            
             </div>
         </div>
         </section>
         
 
-            <a href="https://www.avito.ru/moskva/predlozheniya_uslug/repetitor_po_html_css_js_7391552161"  className="btn-sertificates">Открыть Авито</a>
+            <a href="https://www.avito.ru/moskva/predlozheniya_uslug/repetitor_po_html_css_js_7391552161"  className="btn-sertificates" target='_blank'>Открыть Авито</a>
 
 
         
