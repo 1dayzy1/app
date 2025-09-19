@@ -6,7 +6,7 @@ function Main() {
 
   let tg = window.Telegram.WebApp;
 
-  let username = tg.initDataUnsafe?.user?.username || "shoooter1312";
+  let username = tg.initDataUnsafe?.user?.username || "Гость";
 
 
   return (
