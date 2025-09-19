@@ -2,12 +2,19 @@ import React from 'react'
 import './main.css'
 import { NavLink } from "react-router";
 function Main() {
+
+
+  let tg = window.Telegram.WebApp;
+
+  const username = tg.initDataUnsafe.user.username || '';
+
+
   return (
     <div className='block'>
       <h1 className='Logo'>FrontendByHeart</h1>
         <p className='desc'>Записывайся на уроки удобно</p>
         <div className='firstBlock'>
-          <h1 className='welcome'>Добро пожаловать 👋</h1>
+          <h1 className='welcome'>Добро пожаловать 👋 {username}</h1>
           <p className='firstText'>Меня зовут Дмитрий, я разработчик и репетитор по программированию.<br/> Работаю как с абсолютными<br/>  новичками, так и помогаю тем, кто уже пишет код, но<br/>  застрял и хочет двигаться дальше.</p>
           
 
