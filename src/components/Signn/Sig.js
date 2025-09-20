@@ -16,7 +16,15 @@ function Sig() {
         });
     }, []);
 
-    const today = new Date().toISOString().split('T')[0];
+     // Получаем текущую дату
+    const today = new Date();
+    const todayFormatted = today.toISOString().split('T')[0];
+    
+    // Вычисляем максимальную дату (30 дней вперед)
+    const maxDate = new Date();
+    maxDate.setDate(today.getDate() + 30);
+    const maxDateFormatted = maxDate.toISOString().split('T')[0];
+    
 
     const[date, setDate] = useState('');
     const[times, setTimes] = useState('');
@@ -31,8 +39,10 @@ function Sig() {
 
         if(selectedDate < today){
           setDataError('Нельзя выбрать прошлую дату');
+        }else if(selectedDate > maxDateFormatted){
+          setDataError('Нельзя записаться больше месяца вперед');
         }else{
-          setDataError('');
+          setDataError('')
         }
 
 
@@ -80,7 +90,11 @@ function Sig() {
 
 
     <div className='block'>
-      <h1 className='Logo'>FrontendByHeart</h1>
+     <div className='Logo'>
+        
+        <img src='/logo.png' width={70} alt='Logo'/>
+FrontendByHeart
+      </div>
         <p className='desc'>Записывайся на уроки удобно</p>
         <div className='sign-block'>
           
@@ -110,7 +124,8 @@ function Sig() {
             <input type='date'
             id='date'
             onChange={changedate}
-            min={today}
+            min={todayFormatted}
+            max={maxDateFormatted}
             required
 
             

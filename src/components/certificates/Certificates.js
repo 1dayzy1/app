@@ -28,7 +28,11 @@ function Certificates() {
     
   return (
     <div className='block'>
-      <h1 className='Logo'>FrontendByHeart</h1>
+     <div className='Logo'>
+        
+        <img src='/logo.png' width={70} alt='Logo'/>
+FrontendByHeart
+      </div>
         <p className='desc'>Записывайся на уроки удобно</p>
         
 
