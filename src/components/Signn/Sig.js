@@ -37,7 +37,7 @@ function Sig() {
         const selectedDate = e.target.value;
         setDate(selectedDate);
 
-        if(selectedDate < today){
+        if(selectedDate < todayFormatted){
           setDataError('Нельзя выбрать прошлую дату');
         }else if(selectedDate > maxDateFormatted){
           setDataError('Нельзя записаться больше месяца вперед');
