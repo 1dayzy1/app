@@ -71,9 +71,9 @@ function Main() {
           подробнее и подберу задачи под твой уровень.
         </p>
 
-        <NavLink to={"/sign"}>
+        <a href="https://www.avito.ru/moskva/predlozheniya_uslug/repetitor_po_html_css_js_7391552161">
           <button className="btn-main">Записаться на урок</button>
-        </NavLink>
+        </a>
       </div>
     </div>
   );
