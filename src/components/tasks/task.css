@@ -1,0 +1,140 @@
+*{
+    box-sizing: border-box;
+
+}
+
+.desc-task{
+    font-size: 20px;
+}
+
+.btnTask-theme{
+    padding: 8px 16px;
+    border-radius: 32px;
+    margin-right: 16px;
+    border: 1px solid #3a4255;
+    cursor: pointer;
+    color: #ffffff83;
+}
+
+.btnTask-theme.active{
+    background-color: #2481cc;
+    color: #fff;
+
+}
+
+.container-tasks{
+    margin-top: 20px;
+}
+
+.item-task.easy{
+    padding: 16px;
+    border-top: 2px solid #3a4255;
+    border-right: 2px solid #3a4255;
+    border-bottom: 2px solid #3a4255;
+    border-left: 6px solid #2ecc71;
+    border-radius: 16px;
+    cursor: pointer;
+
+    margin: 20px 0;
+}
+
+.item-task.medium{
+    padding: 16px;
+    border-top: 2px solid #3a4255;
+    border-right: 2px solid #3a4255;
+    border-bottom: 2px solid #3a4255;
+    border-left: 6px solid #f39c12;
+    border-radius: 16px;
+    cursor: pointer;
+
+    margin: 20px 0;
+}
+
+
+.item-task.hard{
+    padding: 16px;
+    border-top: 2px solid #3a4255;
+    border-right: 2px solid #3a4255;
+    border-bottom: 2px solid #3a4255;
+    border-left: 6px solid #e74c3c;
+    border-radius: 16px;
+    cursor: pointer;
+
+    margin: 20px 0;
+}
+
+
+.lvl-block{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+
+
+.icon-task{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #16cf7c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.htmlIcn{
+    background-color: #d5f4e6;
+    color: orange;
+}
+
+
+.level-block.easy{
+    padding: 6px 10px;
+    background-color: #d5f4e6;
+    color: #2ecc71;
+    border-radius: 30px;
+}
+
+.level-block.medium{
+    padding: 6px 10px;
+    background-color:#f39c12 ;
+    color:#503e22 ;
+    border-radius: 30px;
+}
+
+.level-block.hard{
+    padding: 6px 10px;
+    background-color: #e74c3c;
+    color: #ffffff;
+    border-radius: 30px;
+}
+
+
+.title-task{
+    font-size: 17px;
+    font-weight: 700;
+    margin: 6px 0;
+}
+
+.desc-task{
+    color: #b0b7c3;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.btn-task{
+    width: 100%;
+    border: none;
+    background-color: #2481cc;
+    padding: 4px 0;
+    border-radius: 20px;
+}
+
+.arrow-right{
+    background-color: #2481cc;
+    color: #fff;
+    font-weight: bold;
+    
+
+}
