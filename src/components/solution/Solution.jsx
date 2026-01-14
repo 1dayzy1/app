@@ -17,6 +17,7 @@ function Solution() {
           fill="currentColor"
           class="arrow-left"
           viewBox="0 0 16 16"
+          onClick={() => window.history.back()}
         >
           <path
             fill-rule="evenodd"
