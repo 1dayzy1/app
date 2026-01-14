@@ -7,6 +7,7 @@ import Sign from './components/pages/Sign.js';
 import NotFound from './components/NotFound/NotFound.js';
 import CertificatesPage from './components/pages/CertificatesPage.js';
 import Task from './components/tasks/Task.js';
+import Soon from './components/soon/Soon.jsx';
 
 
 function App() {
@@ -24,7 +25,8 @@ function App() {
             
             <Route path='/' element={<Home/>}/>
             <Route path='/sertificates' element={<CertificatesPage/>}/>
-            <Route path='/sign' element={<Sign/>}></Route>
+            <Route path='/sign' element={<Soon/>}></Route>
+            <Route path='/listen' element={<Soon/>}></Route>
             <Route path='/task' element={<Task/>}></Route>
             <Route path='/*' element={<NotFound/>}></Route>
         

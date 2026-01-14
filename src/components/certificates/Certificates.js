@@ -39,7 +39,7 @@ FrontendByHeart
 
         <section id="page-certificates" className="page hidden">
         <div className="card" >
-            <div >Моё объявление на Авито</div>
+            {/* <div >Моё объявление на Авито</div> */}
             <div >
             Здесь можно узнать обо мне подробнее, посмотреть отзывы и связаться напрямую.
             </div>

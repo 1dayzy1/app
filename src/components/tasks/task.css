@@ -22,6 +22,10 @@
 
 }
 
+.container-btns{
+    margin-top: 15px;
+}
+
 .btn-more{
     background-color: #4a6cf7;
   color: white;
@@ -144,6 +148,7 @@
     background-color: #2481cc;
     padding: 4px 0;
     border-radius: 20px;
+    margin-top: 10px;
 }
 
 .arrow-right{
