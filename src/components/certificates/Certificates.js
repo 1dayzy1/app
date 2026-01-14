@@ -30,7 +30,7 @@ function Certificates() {
     <div className='block'>
      <div className='Logo'>
         
-        <img src='/logo.png' width={70} alt='Logo'/>
+        <img src='/logo.svg' width={120} alt='Logo'/>
 FrontendByHeart
       </div>
         <p className='desc'>Записывайся на уроки удобно</p>

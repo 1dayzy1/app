@@ -12,6 +12,7 @@
     pointer-events:auto;
     box-shadow: 4px 4px 24px 0px rgba(0, 0, 0, 0.44);
     border-radius: 70px;
+    background-color: #0f1720;
     
 
 }
@@ -21,9 +22,12 @@
     font-size: 10px;
     color: #9aa4b2;
     cursor: pointer;
+    background-color: #0f1720;
+    z-index: 100;
     
 }
 
 .nav-link.active .nav-btn{
     color: #2f80ed;
+    z-index: 100;
 }
