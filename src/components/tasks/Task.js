@@ -4,7 +4,8 @@ import axios from "axios";
 
 function Task() {
   let [item, setItems] = useState([]);
- const [activeFilter, setActiveFilter] = useState("all");
+  const [activeFilter, setActiveFilter] = useState("all");
+    let[visibleCount, setVisibleCount] = useState(3);
   useEffect(() => {
     const fetchTask = async () => {
       try {
@@ -12,42 +13,45 @@ function Task() {
 
         setItems(req.data);
       } catch (error) {
-        console.error("Ошибка при получении данных: ", error)
+        console.error("Ошибка при получении данных: ", error);
       }
-
-      
     };
 
     fetchTask();
   }, []);
 
-  const filterTask = async(e) =>{
-        try {
-            const lang = e.target.value;
-            setActiveFilter(lang);
 
-            if(lang === "all"){
-                const req = await axios.get("https://fc72acdaf3f6b3b2.mokky.dev/task");
+  const visibleItem = item.slice(0, visibleCount);
 
-                setItems(req.data);
-            }else{
-                 const req_item = await axios.get(`https://fc72acdaf3f6b3b2.mokky.dev/task?lang=${lang}`);
-
-                setItems(req_item.data);
-            }
-
-           
-        } catch (error) {
-            console.log("Ошибка:" + error)
-        }
-
+  const loadMore = () =>{
+    setVisibleCount(prev => prev + 1);
   }
 
+  const filterTask = async (e) => {
+    try {
+      const lang = e.target.value;
+      setActiveFilter(lang);
+      setVisibleCount(3);
 
-  const activeBtn = (value) =>{
-    return `btnTask-theme ${activeFilter === value ? 'active' : ''}`
-  }
-  
+      if (lang === "all") {
+        const req = await axios.get("https://fc72acdaf3f6b3b2.mokky.dev/task");
+
+        setItems(req.data);
+      } else {
+        const req_item = await axios.get(
+          `https://fc72acdaf3f6b3b2.mokky.dev/task?lang=${lang}`
+        );
+
+        setItems(req_item.data);
+      }
+    } catch (error) {
+      console.log("Ошибка:" + error);
+    }
+  };
+
+  const activeBtn = (value) => {
+    return `btnTask-theme ${activeFilter === value ? "active" : ""}`;
+  };
 
   return (
     <div className="block">
@@ -58,18 +62,35 @@ function Task() {
       <p className="desc-task">Привет, здесь ты можешь выбрать задачу!)</p>
 
       <div className="container-btns">
-        <button className={activeBtn('all')} value={"all"} onClick={filterTask}>Все</button>
-        <button className={activeBtn('html')} value={"html"} onClick={filterTask}>HTML</button>
-        <button className={activeBtn('css')} value={"css"} onClick={filterTask}>CSS</button>
-        <button className={activeBtn('js')} value={"js"} onClick={filterTask}>JavaScript</button>
+        <button className={activeBtn("all")} value={"all"} onClick={filterTask}>
+          Все
+        </button>
+        <button
+          className={activeBtn("html")}
+          value={"html"}
+          onClick={filterTask}
+        >
+          HTML
+        </button>
+        <button className={activeBtn("css")} value={"css"} onClick={filterTask}>
+          CSS
+        </button>
+        <button className={activeBtn("js")} value={"js"} onClick={filterTask}>
+          JavaScript
+        </button>
       </div>
-
+        
       <div className="container-tasks">
-        {item.map((el) => (
+        {visibleItem.map((el) => (
           <div className={el.class} key={el.id}>
             <div className="lvl-block">
               <div className="icon-task">
-                <img src={el.language_path} className="color-icon" width={50} height={50} />
+                <img
+                  src={el.language_path}
+                  className="color-icon"
+                  width={50}
+                  height={50}
+                />
               </div>
 
               <div className={el.level}>{el.lvl_text}</div>
@@ -78,9 +99,7 @@ function Task() {
             <div className="description-block">
               <h2 className="title-task">{el.title}</h2>
 
-              <p className="desc-task">
-                {el.desc}
-              </p>
+              <p className="desc-task">{el.desc}</p>
             </div>
 
             <button className="btn-task">
@@ -100,6 +119,10 @@ function Task() {
             </button>
           </div>
         ))}
+
+        <button onClick={loadMore} className="btn-more">Загрузить еще</button>
+
+        
       </div>
     </div>
   );

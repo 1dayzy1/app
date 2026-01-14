@@ -22,6 +22,21 @@
 
 }
 
+.btn-more{
+    background-color: #4a6cf7;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 16px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(74, 108, 247, 0.2);
+  margin-bottom: 100px;
+  width: 100%;
+}
+
 .container-tasks{
     margin-top: 20px;
 }
@@ -34,8 +49,8 @@
     border-left: 6px solid #2ecc71;
     border-radius: 16px;
     cursor: pointer;
-
     margin: 20px 0;
+    
 }
 
 .item-task.medium{
