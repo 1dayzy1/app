@@ -4,7 +4,7 @@ import axios from "axios";
 
 function Task() {
   let [item, setItems] = useState([]);
-
+ const [activeFilter, setActiveFilter] = useState("all");
   useEffect(() => {
     const fetchTask = async () => {
       try {
@@ -21,7 +21,32 @@ function Task() {
     fetchTask();
   }, []);
 
+  const filterTask = async(e) =>{
+        try {
+            const lang = e.target.value;
+            setActiveFilter(lang);
 
+            if(lang === "all"){
+                const req = await axios.get("https://fc72acdaf3f6b3b2.mokky.dev/task");
+
+                setItems(req.data);
+            }else{
+                 const req_item = await axios.get(`https://fc72acdaf3f6b3b2.mokky.dev/task?lang=${lang}`);
+
+                setItems(req_item.data);
+            }
+
+           
+        } catch (error) {
+            console.log("Ошибка:" + error)
+        }
+
+  }
+
+
+  const activeBtn = (value) =>{
+    return `btnTask-theme ${activeFilter === value ? 'active' : ''}`
+  }
   
 
   return (
@@ -33,10 +58,10 @@ function Task() {
       <p className="desc-task">Привет, здесь ты можешь выбрать задачу!)</p>
 
       <div className="container-btns">
-        <button className="btnTask-theme active">Все</button>
-        <button className="btnTask-theme">HTML</button>
-        <button className="btnTask-theme">CSS</button>
-        <button className="btnTask-theme">JavaScript</button>
+        <button className={activeBtn('all')} value={"all"} onClick={filterTask}>Все</button>
+        <button className={activeBtn('html')} value={"html"} onClick={filterTask}>HTML</button>
+        <button className={activeBtn('css')} value={"css"} onClick={filterTask}>CSS</button>
+        <button className={activeBtn('js')} value={"js"} onClick={filterTask}>JavaScript</button>
       </div>
 
       <div className="container-tasks">
