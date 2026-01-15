@@ -1,0 +1,48 @@
+.block-feedback{
+    padding: 20px;
+    background-color: rgba(46, 204, 113, 0.1);
+    border: 5px solid;
+    border-left-color: #2ecc71;
+    border-radius: 12px;
+    opacity: 0;
+    pointer-events: none;
+    margin-bottom: 80px;
+    transition: 300ms;
+}
+
+.block-feedback.active{
+    opacity: 1;
+    pointer-events: all;
+    transition: 300ms;
+}
+
+.header-block{
+    display: flex;
+    align-items: start;
+    
+
+}
+
+.fd-txt{
+    color: #2ecc71;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.icon{
+    width: 24px;
+    height: 24px;
+    background-color: #2ecc71;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+    margin-bottom: 15px;
+}
+
+.feedback-message{
+    color: #666666;
+    line-height: 23px;
+    font-size: 15px;
+}

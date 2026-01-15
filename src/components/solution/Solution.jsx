@@ -1,13 +1,19 @@
 import React, { useState } from "react";
 import "./Solution.css";
 import { useLocation } from "react-router-dom";
+import Success from "../checkTask/Success";
+import Error from "../checkTask/Error";
 
 function Solution() {
 
 
   let[code, setCode] = useState('');
   const location = useLocation();
-  let[result, setResult] = useState('')
+  let[modalcls, setModalcls] = useState('modal-block')
+  let[result, setResult] = useState('');
+  let[fedcls, setFedcls] = useState('block-feedback')
+  let[fedclser, setFedclser] = useState('block-feedback-er')
+  // let[modal, setModal] = useState(false);
   // console.log(location)
 
  const { item } = location.state || {};
@@ -15,7 +21,13 @@ function Solution() {
   // console.log(item)
 
 
-  
+  const openModal = () =>{
+    setModalcls('modal-block active')
+  }
+
+   const closeModal = () =>{
+    setModalcls('modal-block')
+  }
 
 
 
@@ -30,9 +42,12 @@ function Solution() {
   
 
   const checkTask = () =>{
-    console.log(item.code)
+    // console.log(item.code)
     // const correct = "Привет"
    try {
+
+    // setFedcls('block-feedback');
+    // setFedclser('block-feedback-er');
 
     let output = "";
 
@@ -49,9 +64,13 @@ function Solution() {
 
       // console.log("Привет")
     if(output === item.code ){
-      setResult('Правильно')
+      setResult('Правильно');
+      setFedcls('block-feedback active');
+      setFedclser('block-feedback-er');
     }else{
       setResult("Неправильно");
+      setFedclser('block-feedback-er active');
+      setFedcls('block-feedback');
     }
 
     
@@ -68,13 +87,52 @@ function Solution() {
         FrontendByHeart
       </div> */}
 
+
+ <div className={modalcls}>
+
+          <div className="modal-blocks">
+
+            <div className="modal-headers">
+
+              <h2 className="title-modal"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="lamp" viewBox="0 0 16 16">
+          <path d="M2 6a6 6 0 1 1 10.174 4.31c-.203.196-.359.4-.453.619l-.762 1.769A.5.5 0 0 1 10.5 13h-5a.5.5 0 0 1-.46-.302l-.761-1.77a2 2 0 0 0-.453-.618A5.98 5.98 0 0 1 2 6m3 8.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1l-.224.447a1 1 0 0 1-.894.553H6.618a1 1 0 0 1-.894-.553L5.5 15a.5.5 0 0 1-.5-.5"/>
+        </svg>Подсказка</h2>
+
+              <button className="btn-close" onClick={closeModal}><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+            <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
+          </svg></button>
+
+            </div>
+
+            <div className="modal-contents">
+
+            <p className="clue-text"></p>
+
+            <ul className="list-Item">
+
+              {
+                item.clue.map((el) => (
+                  <li className="itemList">{el}</li>
+                ))
+              }
+
+            </ul>
+
+            </div>
+
+          </div>
+
+      </div>
+
+     
+
       <div className="icon-back">
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          fillrule="currentColor"
-          className="arrow-left"
+          width="30"
+          height="30"
+          fill="currentColor"
+          class="arrow-left"
           viewBox="0 0 16 16"
           onClick={() => window.history.back()}
         >
@@ -99,17 +157,14 @@ function Solution() {
         </p>
 
         <div className="code-example">
-          // Пример использования: <br />
-          console.log(sumArray([1, 2, 3, 4])); // Должно вернуть: 10
-          <br />
-          console.log(sumArray([10, -5, 7])); // Должно вернуть: 12
-          <br />
+          {item.primer}
+          
         </div>
 
         <div className="container-title-editor">
           <h3 className="text-sol">Ваше решение:</h3>
 
-          <button className="btn-clue">Подсказка</button>
+          <button className="btn-clue" onClick={openModal} >Подсказка</button>
         </div>
 
         <div className="code-editor">
@@ -145,7 +200,12 @@ function Solution() {
         <button className="btn-check-sol" onClick={checkTask}>Проверить решение</button>
 
 
-        <h1 className="g">{result}</h1>
+         {fedclser.includes('active') && <Error cls={fedclser}/>}
+      
+      {/* Показываем Success только когда есть успех */}
+      {fedcls.includes('active') && <Success cls={fedcls}/>}
+
+        
 
       </div>
     </div>
