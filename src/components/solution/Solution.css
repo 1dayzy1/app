@@ -168,6 +168,11 @@
 
 }
 
+.g{
+    color: #000;
+    margin-bottom:70px;
+}
+
 .code-input:focus{
     outline: none;
 }
@@ -187,5 +192,5 @@
     align-items: center;
     gap: 12px;
     transition: background-color 0.2s, transform 0.1s;
-    margin-bottom: 70px;
+    margin-bottom: 40px;
 }

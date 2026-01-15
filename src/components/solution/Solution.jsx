@@ -7,7 +7,7 @@ function Solution() {
 
   let[code, setCode] = useState('');
   const location = useLocation();
-
+  let[result, setResult] = useState('')
   // console.log(location)
 
  const { item } = location.state || {};
@@ -27,7 +27,35 @@ function Solution() {
   const handlChange = (e) =>{
     setCode(e.target.value)
   }
+  
 
+  const checkTask = () =>{
+    console.log(item.code)
+    // const correct = "Привет"
+   try {
+
+    let output = "";
+
+    const consoleBackup = console.log;
+
+    console.log = (msg) => {output += msg};
+
+    eval(code);
+
+    console.log = consoleBackup;
+
+      // console.log("Привет")
+    if(output === item.code ){
+      setResult('Правильно')
+    }else{
+      setResult("Неправильно");
+    }
+
+    
+   } catch (error) {
+      setResult(`Ошибка выполнения: ${error}`)
+   }
+  }
 
 
   return (
@@ -93,9 +121,7 @@ function Solution() {
           <textarea
             id="codeInput"
             className="code-input"
-            placeholder="function sumArray(arr) {
-                // Ваш код здесь
-            }"
+            placeholder="// Твой код здесь"
 
             onChange={handlChange}
             value={code}
@@ -104,14 +130,19 @@ function Solution() {
             
           </textarea>
 
+
+          
+
             
 
 
 
         </div>
 
-        <button className="btn-check-sol">Проверить решение</button>
+        <button className="btn-check-sol" onClick={checkTask}>Проверить решение</button>
 
+
+        <h1 className="g">{result}</h1>
 
       </div>
     </div>

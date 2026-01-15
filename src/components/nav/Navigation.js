@@ -132,7 +132,7 @@ function Navigation() {
       </NavLink>
 
 
-      <NavLink
+      {/* <NavLink
         to={"/solution"}
         className={({ isActive }) =>
           isActive ? "nav-link active" : "nav-link"
@@ -159,7 +159,7 @@ function Navigation() {
           </svg>
           <div>Решение</div>
         </button>
-      </NavLink>
+      </NavLink> */}
     </div>
   );
 }

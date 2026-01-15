@@ -1,6 +1,6 @@
 import React from "react";
 import "./main.css";
-import { NavLink } from "react-router";
+// import { NavLink } from "react-router";
 function Main() {
   let tg = window.Telegram.WebApp;
 
