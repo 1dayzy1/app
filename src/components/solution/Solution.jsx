@@ -40,7 +40,10 @@ function Solution() {
 
     console.log = (msg) => {output += msg};
 
-    eval(code);
+    let sanitizedCode = code.replace(/[“”]/g, '"').replace(/[‘’]/g, "'");
+    eval(sanitizedCode);
+
+    
 
     console.log = consoleBackup;
 
