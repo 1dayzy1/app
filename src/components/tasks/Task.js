@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./task.css";
 import axios from "axios";
 
+import { useNavigate } from "react-router";
 function Task() {
   let [item, setItems] = useState([]);
   const [activeFilter, setActiveFilter] = useState("all");
@@ -53,6 +54,9 @@ function Task() {
     return `btnTask-theme ${activeFilter === value ? "active" : ""}`;
   };
 
+
+  const navigate = useNavigate()
+
   return (
     <div className="block">
       <div className="Logo">
@@ -80,7 +84,7 @@ function Task() {
         </button>
       </div>
         
-      <div className="container-tasks">
+      <div className="container-tasks ">
         {visibleItem.map((el) => (
           <div className={el.class} key={el.id}>
             <div className="lvl-block">
@@ -102,7 +106,7 @@ function Task() {
               <p className="desc-task">{el.desc}</p>
             </div>
 
-            <button className="btn-task">
+            <button className="btn-task" onClick={() => navigate('/solution', { state: { item: el } })} >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="34"
@@ -116,6 +120,8 @@ function Task() {
                   d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"
                 />
               </svg>
+
+              
             </button>
           </div>
         ))}

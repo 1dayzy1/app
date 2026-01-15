@@ -1,7 +1,17 @@
 import React from "react";
 import "./Solution.css";
+import { useLocation } from "react-router-dom";
 
 function Solution() {
+
+  const location = useLocation();
+
+  console.log(location)
+
+ const { item } = location.state || {};
+  
+  console.log(item)
+
   return (
     <div className="block">
       {/* <div className="Logo">
@@ -25,19 +35,18 @@ function Solution() {
           />
         </svg>
 
-        <h1 className="title-task">JavaScript: Массивы</h1>
+        <h1 className="title-task">{item.lang}</h1>
       </div>
 
       <div className="solution-block">
         <div className="solution-header">
-          <div className="id-task">Задача 4</div>
-          <div className="lvl-task easy">• Легкая</div>
+          <div className="id-task">Задача {item.id}</div>
+          <div className={item.level}>• {item.lvl_text}</div>
         </div>
 
-        <h2 className="title-task-example">Найти сумму элементов массива</h2>
+        <h2 className="title-task-example">{item.title}</h2>
         <p className="desc-task-example">
-          Напишите функцию sumArray, которая принимает массив чисел и возвращает
-          их сумму.
+          {item.desc}
         </p>
 
         <div className="code-example">
@@ -56,7 +65,7 @@ function Solution() {
 
         <div className="code-editor">
           <div class="editor-header">
-            <span>JavaScript</span>
+            <span>{item.lang_code}</span>
             <button class="btn-reset" id="resetBtn">
               Очистить
             </button>
@@ -71,6 +80,9 @@ function Solution() {
           >
             
           </textarea>
+
+            
+
 
 
         </div>
