@@ -10,7 +10,7 @@ function Solution() {
   let[code, setCode] = useState('');
   const location = useLocation();
   let[modalcls, setModalcls] = useState('modal-block')
-  let[result, setResult] = useState('');
+  // let[result, setResult] = useState('');
   let[fedcls, setFedcls] = useState('block-feedback')
   let[fedclser, setFedclser] = useState('block-feedback-er')
   // let[modal, setModal] = useState(false);
@@ -64,18 +64,18 @@ function Solution() {
 
       // console.log("Привет")
     if(output === item.code ){
-      setResult('Правильно');
+      // setResult('Правильно');
       setFedcls('block-feedback active');
       setFedclser('block-feedback-er');
     }else{
-      setResult("Неправильно");
+      // setResult("Неправильно");
       setFedclser('block-feedback-er active');
       setFedcls('block-feedback');
     }
 
     
    } catch (error) {
-      setResult(`Ошибка выполнения: ${error}`)
+      console.log(error);
    }
   }
 
@@ -112,7 +112,7 @@ function Solution() {
 
               {
                 item.clue.map((el) => (
-                  <li className="itemList">{el}</li>
+                  <li className="itemList" key={item.id}>{el}</li>
                 ))
               }
 
