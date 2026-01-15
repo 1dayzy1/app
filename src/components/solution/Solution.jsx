@@ -1,16 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Solution.css";
 import { useLocation } from "react-router-dom";
 
 function Solution() {
 
+
+  let[code, setCode] = useState('');
   const location = useLocation();
 
-  console.log(location)
+  // console.log(location)
 
  const { item } = location.state || {};
   
-  console.log(item)
+  // console.log(item)
+
+
+  
+
+
+
+
+  const resetText = () =>{
+    setCode('')
+  }
+
+  const handlChange = (e) =>{
+    setCode(e.target.value)
+  }
+
+
 
   return (
     <div className="block">
@@ -24,8 +42,8 @@ function Solution() {
           xmlns="http://www.w3.org/2000/svg"
           width="24"
           height="24"
-          fill="currentColor"
-          class="arrow-left"
+          fillrule="currentColor"
+          className="arrow-left"
           viewBox="0 0 16 16"
           onClick={() => window.history.back()}
         >
@@ -35,7 +53,7 @@ function Solution() {
           />
         </svg>
 
-        <h1 className="title-task">{item.lang}</h1>
+        <h1 className="title-task">{item.title_full}</h1>
       </div>
 
       <div className="solution-block">
@@ -65,18 +83,23 @@ function Solution() {
 
         <div className="code-editor">
           <div class="editor-header">
+            
             <span>{item.lang_code}</span>
-            <button class="btn-reset" id="resetBtn">
+            <button class="btn-reset" id="resetBtn" onClick={resetText} >
               Очистить
             </button>
           </div>
 
           <textarea
             id="codeInput"
-            class="code-input"
+            className="code-input"
             placeholder="function sumArray(arr) {
                 // Ваш код здесь
             }"
+
+            onChange={handlChange}
+            value={code}
+            
           >
             
           </textarea>

@@ -94,6 +94,7 @@ function Task() {
                   className="color-icon"
                   width={50}
                   height={50}
+                  alt="icon"
                 />
               </div>
 
@@ -111,8 +112,8 @@ function Task() {
                 xmlns="http://www.w3.org/2000/svg"
                 width="34"
                 height="34"
-                fill="currentColor"
-                class="arrow-right"
+                fill-rule="currentColor"
+                className="arrow-right"
                 viewBox="0 0 16 16"
               >
                 <path
