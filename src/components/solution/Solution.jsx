@@ -157,7 +157,12 @@ function Solution() {
         </p>
 
         <div className="code-example">
-          {item.primer}
+          {item.primer.split('\n').map((line, index) => (
+    <span key={index}>
+      {line}
+      {index < item.primer.split('\n').length - 1 && <br />}
+    </span>
+  ))}
           
         </div>
 
