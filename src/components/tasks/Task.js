@@ -82,6 +82,10 @@ function Task() {
         <button className={activeBtn("js")} value={"js"} onClick={filterTask}>
           JavaScript
         </button>
+
+        <button className={activeBtn("html-css")} value={"html-css"} onClick={filterTask}>
+            HTML + CSS
+        </button>
       </div>
         
       <div className="container-tasks ">
