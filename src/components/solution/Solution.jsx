@@ -3,6 +3,7 @@ import "./Solution.css";
 import { useLocation } from "react-router-dom";
 import Success from "../checkTask/Success";
 import Error from "../checkTask/Error";
+import Test from "./Test";
 
 function Solution() {
   let [code, setCode] = useState("");
@@ -156,8 +157,8 @@ function Solution() {
             <p className="clue-text"></p>
 
             <ul className="list-Item">
-              {item.clue.map((el) => (
-                <li className="itemList" key={item.id}>
+              {item.clue.map((el,index) => (
+                <li className="itemList" key={index}>
                   {el}
                 </li>
               ))}
@@ -194,7 +195,10 @@ function Solution() {
         <h2 className="title-task-example">{item.title}</h2>
         <p className="desc-task-example">{item.desc}</p>
 
-        <div className="code-example">
+        {
+          item.type === "code" ? <div>
+
+<div className="code-example">
           {item.primer.split("\n").map((line, index) => (
             <span key={index}>
               {line}
@@ -231,6 +235,9 @@ function Solution() {
         <button className="btn-check-sol" onClick={checkTask}>
           Проверить решение
         </button>
+
+          </div> : <Test item={item.variant} otv={item}/>
+        }
 
         {fedclser.includes("active") && <Error cls={fedclser} />}
         

@@ -25,7 +25,7 @@ function Task() {
   const visibleItem = item.slice(0, visibleCount);
 
   const loadMore = () =>{
-    setVisibleCount(prev => prev + 1);
+    setVisibleCount(prev => prev + 2);
   }
 
   const filterTask = async (e) => {
@@ -112,7 +112,7 @@ function Task() {
                 xmlns="http://www.w3.org/2000/svg"
                 width="34"
                 height="34"
-                fill-rule="currentColor"
+                fill="currentColor"
                 className="arrow-right"
                 viewBox="0 0 16 16"
               >
