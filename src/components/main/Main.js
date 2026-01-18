@@ -4,7 +4,7 @@ import "./main.css";
 function Main() {
   let tg = window.Telegram.WebApp;
 
-  let username = tg.initDataUnsafe?.user?.username || "Гость";
+  let username = tg.initDataUnsafe?.user?.id || "Гость";
 
   return (
     <div className="block">
