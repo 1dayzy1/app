@@ -84,26 +84,45 @@ function Solution() {
         doc.write(code);
         doc.close();
 
-        const element = doc.querySelector(item.selector);
+        
 
-        if (!element) {
-          setFedclser("block-feedback-er active");
-          setFedcls("block-feedback");
-          iframe.remove();
-          return;
-        }
+        const checks = item.checks || [
+          {
+            selector: item.selector,
+            styles:item.styles
+          }
+        ]
 
-        if (item.styles) {
-          const styles = getComputedStyle(element);
-          for (let prop in item.styles) {
-            if (styles[prop] !== item.styles[prop]) {
-              setFedclser("block-feedback-er active");
-              setFedcls("block-feedback");
-              iframe.remove();
-              return;
+
+        for(let chack of checks){
+          const element = doc.querySelector(chack.selector);
+
+          if (!element) {
+            setFedclser("block-feedback-er active");
+            setFedcls("block-feedback");
+            iframe.remove();
+            return;
+          }
+
+          if (chack.styles) {
+            const styles = getComputedStyle(element);
+            for (let prop in chack.styles) {
+              if (styles[prop] !== chack.styles[prop]) {
+                setFedclser("block-feedback-er active");
+                setFedcls("block-feedback");
+                iframe.remove();
+                return;
+              }
             }
           }
+
+          
+
         }
+
+        
+
+        
 
         setFedcls("block-feedback active");
         setFedclser("block-feedback-er");
