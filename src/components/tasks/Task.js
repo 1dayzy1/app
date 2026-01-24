@@ -60,7 +60,7 @@ function Task() {
   return (
     <div className="block">
       <div className="Logo">
-        <img src="./logo.svg" width={70} alt="Logo" />
+        <img src="./logo.svg" width={120} alt="Logo" />
         FrontendByHeart
       </div>
       <p className="desc-task">Привет, здесь ты можешь выбрать задачу!)</p>

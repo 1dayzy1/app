@@ -1,12 +1,32 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./main.css";
+import axios from "axios";
 // import { NavLink } from "react-router";
 function Main() {
   let tg = window.Telegram.WebApp;
 
-  let username = tg.initDataUnsafe?.user?.username || "Гость";
+  let username = tg.initDataUnsafe?.user?.username || "test";
 
-  
+  // let [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    const checkUsername = async () => {
+      try {
+       await axios.post("http://localhost:9000/api/add",{
+        name:username
+       })
+
+       
+        console.log("имя записано")
+      } catch (error) {
+        console.error(error);
+      }
+
+      
+    };
+    checkUsername()
+    
+  }, []);
 
   return (
     <div className="block">
@@ -73,7 +93,7 @@ function Main() {
           подробнее и подберу задачи под твой уровень.
         </p>
 
-        <a href="https://www.avito.ru/moskva/predlozheniya_uslug/repetitor_po_html_css_js_7391552161">
+        <a href="https://www.avito.ru/moskva/predlozheniya_uslug/obuchenie_sozdaniyu_saytov_7711816035">
           <button className="btn-main">Записаться на урок</button>
         </a>
       </div>
