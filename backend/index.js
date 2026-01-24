@@ -8,7 +8,7 @@ const { chownSync } = require("fs");
 app.use(express.json());
 app.use(cors());
 
-let students = ["test"];
+let students = ["test","Dayzy_sr"];
 
 app.get("/", (req, res) => {
   // console.log("acitve")
