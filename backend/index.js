@@ -66,9 +66,9 @@ app.get("/api/user/", (req, res) => {
           id,
         });
       } else {
-        res.json({
-          isStudent: false,
-        });
+        // res.json({
+        //   isStudent: false,
+        // });
       }
     }
   } catch (error) {

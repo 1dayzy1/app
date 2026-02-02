@@ -6,7 +6,8 @@ function Navigation() {
 
   let tg = window.Telegram.WebApp;
 
-  let user_id = tg.initDataUnsafe?.user?.id || "Гость";
+  
+  let user_id = tg.initDataUnsafe?.user?.id || null;
 
   const idAdmin = 1205083192;
 
@@ -39,6 +40,37 @@ function Navigation() {
           <div>Главная</div>
         </button>
       </NavLink>
+
+      {
+        user_id === idAdmin ? (
+          <div>
+            <NavLink
+        to={"/"}
+        className={({ isActive }) =>
+          isActive ? "nav-link active" : "nav-link"
+        }
+      >
+        <button className="nav-btn">
+          <svg
+            className="nav-icon"
+            viewBox="0 0 24 24"
+            fill="none"
+            width={30}
+            height={30}
+            stroke="currentColor"
+            strokeWidth="1.4"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M3 11.5L12 4l9 7.5"></path>
+            <path d="M5 21V11h14v10"></path>
+          </svg>
+          <div>Админ</div>
+        </button>
+      </NavLink>
+          </div>
+        ) : ''
+      }
 
       <NavLink
         to={"/sign"}
